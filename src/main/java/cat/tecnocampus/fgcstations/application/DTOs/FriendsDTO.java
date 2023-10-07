@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 import java.util.List;
+import java.util.Set;
 
 public class FriendsDTO {
     @Pattern(regexp = "^[a-z]*")
@@ -22,8 +23,8 @@ public class FriendsDTO {
         this.username = username;
     }
 
-    public List<String> getFriends() {
-        return friends;
+    public Set<String> getFriends() {
+        return (Set<String>) friends;
     }
 
     public void setFriends(List<String> friends) {

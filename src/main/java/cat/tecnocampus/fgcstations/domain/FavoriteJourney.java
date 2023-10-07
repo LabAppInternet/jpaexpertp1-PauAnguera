@@ -1,11 +1,22 @@
 package cat.tecnocampus.fgcstations.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
 import java.util.List;
 
+@Entity
 public class FavoriteJourney {
 
-    private String id;
+    @Id
+    private String userId;
+
+    @OneToMany
     private List<DayTimeStart> startList;
+
+    @ManyToOne
     private Journey journey;
 
 
@@ -13,11 +24,11 @@ public class FavoriteJourney {
     }
 
     public String getId() {
-        return id;
+        return userId;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public List<DayTimeStart> getStartList() {
@@ -39,7 +50,7 @@ public class FavoriteJourney {
     @Override
     public String toString() {
         return "FavoriteJourney{" +
-                "id=" + id +
+                "id=" + userId +
                 //", startList=" + startList +
                 ", journey=" + journey +
                 '}';

@@ -1,10 +1,18 @@
 package cat.tecnocampus.fgcstations.domain;
 
-import java.util.List;
+import jakarta.persistence.*;
 
+import java.util.List;
+import java.util.Set;
+
+@Entity
 public class Friends {
+
+    @Id
     private String username;
-    private List<String> friends;
+
+    @ElementCollection
+    private Set<String> friends;
 
     public String getUsername() {
         return username;
@@ -14,11 +22,11 @@ public class Friends {
         this.username = username;
     }
 
-    public List<String> getFriends() {
+    public Set<String> getFriends() {
         return friends;
     }
 
-    public void setFriends(List<String> friends) {
+    public void setFriends(Set<String> friends) {
         this.friends = friends;
     }
 }

@@ -1,8 +1,8 @@
-insert into userlab(username, name, second_name, email, password)
-values('joanra', 'Joan Ramon', 'Roca', 'joanra@gmail.com', '{bcrypt}$2a$10$fVKfcc47q6lrNbeXangjYeY000dmjdjkdBxEOilqhapuTO5ZH0co2');
+insert into userlab(name, second_name, email, username)
+values('Joan Ramon', 'Roca', 'joanra@gmail.com', 'joanra');
 
-insert into userlab(username, name, second_name, email, password)
-values('tina', 'Cristina', 'Garcia', 'tina@gmail.com', '{bcrypt}$2a$10$fVKfcc47q6lrNbeXangjYeY000dmjdjkdBxEOilqhapuTO5ZH0co2');
+insert into userlab(name, second_name, email, username)
+values('Cristina', 'Garcia', 'tina@gmail.com', 'tina');
 
 insert into station(latitud, longitud, nom) values('41.65434', '0.685766', 'Lleida-Pirineus');
 insert into station(latitud, longitud, nom) values('41.654221', '0.685937', 'Alcoletge');
@@ -22,12 +22,10 @@ insert into station(latitud, longitud, nom) values('41.65434', '0.685766', 'Trem
 insert into station(latitud, longitud, nom) values('41.65434', '0.685766', 'Salàs de Pallars');
 insert into station(latitud, longitud, nom) values('41.65434', '0.685766', 'La Pobla de Segur');
 
-insert into journey(journey_id, origin, destination) values('1', 'Lleida-Pirineus', 'La Pobla de Segur');
-insert into favorite_journey(favorite_journey_id, journey, user_id) values('1', '1', 'tina');
-insert into day_time_start (daytime_id, timeStart, day_of_week, favorite_journey_id) values ('1', '12:51', 'Monday', '1');
-insert into day_time_start (daytime_id, timeStart, day_of_week, favorite_journey_id) values ('2', '12:30', 'Tuesday', '1');
+insert into journey(destination_nom,id, origin_nom) values('Lleida-Pirineus', '1','La Pobla de Segur');
+insert into favorite_journey(journey_id, user_id) values('1', 'tina');
+insert into day_time_start (day_of_week, id, time_start) values ('Monday','1', '12:51');
+insert into day_time_start (day_of_week, id, time_start) values ('Tuesday','2', '12:30');
 
-insert into friend(username, friend) values('tina', 'maria');
-insert into friend(username, friend) values('tina', 'pepe');
-insert into friend(username, friend) values('tina', 'pepa');
-insert into friend(username, friend) values('joanra', 'pepa');
+insert into friends(username) values('tina');
+insert into friends(username) values('joanra');

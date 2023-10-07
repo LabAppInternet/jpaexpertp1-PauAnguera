@@ -1,11 +1,25 @@
 package cat.tecnocampus.fgcstations.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import org.springframework.context.annotation.Primary;
+
+@Entity
 public class Station {
 
+    @Id
     private String nom;
 
     private String longitud;
     private String latitud;
+
+
+    public Station(String longitud, String latitud, String nom) {
+        this.nom = nom;
+        this.longitud = longitud;
+        this.latitud = latitud;
+    }
 
     public Station() {
     }
@@ -61,4 +75,5 @@ public class Station {
                 ", latitud='" + latitud + '\'' +
                 '}';
     }
+
 }

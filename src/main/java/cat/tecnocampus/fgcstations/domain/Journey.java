@@ -2,12 +2,20 @@ package cat.tecnocampus.fgcstations.domain;
 
 
 import cat.tecnocampus.fgcstations.domain.exceptions.SameOriginDestinationException;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
+@Entity
 public class Journey {
 
+    @Id
     private String id;
 
+    @OneToOne
     private Station origin;
+
+    @OneToOne
     private Station destination;
 
     public Journey(Station origin, Station destination, String id) {
@@ -18,6 +26,10 @@ public class Journey {
         this.origin = origin;
         this.destination = destination;
         this.id = id;
+    }
+
+    public Journey() {
+
     }
 
     public String getId() {

@@ -1,10 +1,16 @@
 package cat.tecnocampus.fgcstations.domain;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name="userlab")
 public class User implements Serializable {
+
+    @Id
     private String username;
 
     private String name;
@@ -12,7 +18,15 @@ public class User implements Serializable {
 
     private String email;
 
+    @OneToMany
     public List<FavoriteJourney> favoriteJourneyList;
+
+    public User(String username, String name, String secondName, String email) {
+        this.username = username;
+        this.name = name;
+        this.secondName = secondName;
+        this.email = email;
+    }
 
     public User() {
        favoriteJourneyList = new ArrayList<>();
